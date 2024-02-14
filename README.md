@@ -19,6 +19,6 @@ O projeto segue a estrutura abaixo, com cada aula em um diretório específico:
 ## Desafios Tecnicos
 - [CodeSignal Arcade](https://app.codesignal.com/arcade/db): Uma sequencia de desafios tecnicos em SQL
 
-**Aécio Mendes Brito**
+**Walter Souza**
 
 [Informática Para Internet - Senac São Paulo]
