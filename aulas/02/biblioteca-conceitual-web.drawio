@@ -12,7 +12,7 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="azss607aFff3kSMOutLu-1" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;AUTOR&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                <mxCell id="azss607aFff3kSMOutLu-1" value="&lt;font color=&quot;#000000&quot;&gt;AUTOR&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" parent="1" vertex="1">
                     <mxGeometry x="120" y="100" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="azss607aFff3kSMOutLu-2" value="&lt;font color=&quot;#000000&quot;&gt;LIVRO&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
@@ -122,16 +122,16 @@
                 <mxCell id="azss607aFff3kSMOutLu-19" value="&lt;font color=&quot;#000000&quot;&gt;SOLICITA&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="140" y="320" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="&lt;font color=&quot;#000000&quot;&gt;REALIZA&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                <mxCell id="2" value="&lt;font color=&quot;#000000&quot;&gt;REALIZA&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="320" y="190" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="&lt;font color=&quot;#000000&quot;&gt;ESCREVE&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                <mxCell id="3" value="&lt;font color=&quot;#000000&quot;&gt;ESCREVE&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="320" y="90" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="&lt;font color=&quot;#000000&quot;&gt;DEVOLUÇÃO&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                <mxCell id="4" value="&lt;font color=&quot;#000000&quot;&gt;DEVOLUÇÃO&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="120" y="450" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="&lt;font color=&quot;#000000&quot;&gt;CONCLUI&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                <mxCell id="5" value="&lt;font color=&quot;#000000&quot;&gt;CONCLUI&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="320" y="440" width="80" height="80" as="geometry"/>
                 </mxCell>
             </root>
