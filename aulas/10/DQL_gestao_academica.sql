@@ -48,18 +48,22 @@ SELECT *
 FROM curso
 where nome LIKE '%medicina' or nome like 'd%';
 
-
-
 select distinct especializacao
 from professor;
 
+-- --------------------------------------
+-- consultas intermediarias
+-- --------------------------------------
+-- exemplo 1: combinar dados de aluno e matricula usando inner join
+select * from aluno;
+SELECT * FROM matricula;
 
+select aluno.nome, aluno.cpf, matricula.aluno_ID
+from aluno
+inner join matricula on aluno.matricula = matricula.aluno_ID;
 
+-- exemplo 2
 
-
-
-
-
-
-
-
+select professor.nome, disciplina.nome
+from professor
+inner join professores_disciplinas on professor.id = professores_disciplinas.professor_ID;
