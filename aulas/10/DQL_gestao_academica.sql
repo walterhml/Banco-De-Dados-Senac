@@ -44,11 +44,14 @@ FROM matricula
 WHERE Curso_id = 2;
 
 
+SELECT *
+FROM curso
+where nome LIKE '%medicina' or nome like 'd%';
 
 
 
-
-
+select distinct especializacao
+from professor;
 
 
 
