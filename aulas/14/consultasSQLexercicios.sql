@@ -16,6 +16,7 @@ FROM Aluno
 JOIN Matricula ON Aluno_ID = Matricula.aluno_id
 WHERE Matricula.DataMatricula > '2024-02-01';
 
+-- fiquei com duvida porque eu nao me liguei que tinha que colocar aspar, por estar procurando um string e nao um numero
 
 -- Contar quantas disciplinas existem com carga horária maior que X
 SELECT *
@@ -35,14 +36,19 @@ SELECT ALUNO.NOME, MATRICULA.DataMatricula
 FROM ALUNO
 join matricula on aluno.matricula = matricula.aluno_id;
 
+-- fiquei encalhado na parte de procurar matricula da tabela aluno e comparar com aluno_id de matricula
+
 -- Combinar nome do curso e nome do aluno
 select curso.nome as curso_nome, aluno.nome as aluno_nome
 from aluno
 join curso on curso.id = aluno.matricula;
 
+-- dificuldade no JOIN, dificuldade em entender qual campo tem que procurar de qual tabela com a outra
+
 -- Contar quantos alunos se matricularam em cada curso
 SELECT COUNT(NOME)
 FROM CURSO;
+
 
 
 Resolva as consultas que conseguir. Para as que não conseguir, adicione comentários informando suas dúvidas e até onde conseguiu evoluir seu código.
