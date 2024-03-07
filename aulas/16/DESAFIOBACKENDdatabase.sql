@@ -32,8 +32,6 @@ nomeServico VARCHAR(50),
 valorServico DECIMAL(11, 2) NOT NULL
 );
 
-
--- ERRO NA TABELA TELEFONE
 CREATE TABLE IF NOT EXISTS Telefone (
 telefoneID INT PRIMARY KEY AUTO_INCREMENT,
 tipoTelefone VARCHAR(50) NOT NULL,
@@ -41,9 +39,14 @@ clienteID INT(11),
 FOREIGN KEY (clienteID) REFERENCES cliente(ID)
 );
 
+
+-- RESOLVER ERRO E SUBIR CRIAR TABELA
 CREATE TABLE IF NOT EXISTS Chale_item (
-FOREIGN KEY (chaleID) REFERENCES chale(id),
-FOREIGN KEY (nomeItem) REFERENCES item(nomeItem)
+chaleID INT,
+nomeItem VARCHAR(255),
+primary key (chaleID, nomeITem),
+foreign key (chaleID) references chale(chaleID),
+foreign key (nomeItem) references item(nomeItem)
 );
 
 CREATE TABLE IF NOT EXISTS Hospedagem (
@@ -54,16 +57,17 @@ dataFim DATETIME DEFAULT CURRENT_TIMESTAMP,
 QtdPessoas INT(11) NOT NULL,
 desconto DECIMAL(11, 2) NOT NULL,
 valorFinal DECIMAL(11, 2),
-FOREIGN KEY (chaleID) REFERENCES chale(ID),
+FOREIGN KEY (chaleID) REFERENCES Chale(ID),
 FOREIGN KEY (clienteID) REFERENCES cliente(ID)
 );
 
-CREATE TABLE IF NOT EXISTS Hospedagem_servico (
+-- CRIAR TABELA HOSPEDAGEM SERVICO
 
-
-
-
-
-
+CREATE TABLE Hospedagem_servico (
+codHospedagem INT,
+codServico INT,
+DataServico DATE NOT NULL,
+PRIMARY KEY (codHospedagem, codServico),
+FOREIGN KEY (codHospedagem) REFERENCES Hospedagem(codHospedagem),
+FOREIGN KEY (codServico) REFERENCES Servico(codServico)
 );
-
