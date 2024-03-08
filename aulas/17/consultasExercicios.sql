@@ -20,7 +20,7 @@ limit 2;
 -- Selecionar chalés com capacidades entre 4 e 6, ordenaos por valor em alta estação
 select *
 from chale
-where capacidade in (4, 6)
+where capacidade BETWEEN 4 AND 6
 order by valorBaixaEstacao;
 
 -- Selecione todos os itens que contenham "de" na descrição, pulando os 2 primeiros resultados
@@ -29,42 +29,61 @@ from item
 where descricaoitem like '%de%'
 limit 13 offset 2;
 
+
+
 # Consultas com JOINS
 -- Selecioar detalhes da hospedagem, incluindo informações do cliente
 select *
 from hospedagem
-join cliente on hospedagem.codcliente = cliente.codcliente;
+join cliente on hospedagem.codcliente = cliente.codcliente;item
 
 -- Selecionar chalés com os itens associados
 select *
 from chale
 join chale_item on chale_item.codchale = chale.codchale
 join item on chale_item.nomeItem = item.nomeItem;
+-- my version
+
+-- versao professor
+select *
+from chale 
+left join chale_item on chale.codChale = chale_item.codChale
+left join item on chale_item.nomeItem = item.nomeItem;
 
 
-select * from item
-select * from chale_item
-select * from chale
--- Selecionar serviços utilizados em uma hospedagem
-select * from servico
 
+
+-- Selecionar serviços utilizados em uma hospedagemservico
+select * from hospedagem_servico;
 
 select *
 from hospedagem
-join hospedagem_sevico on hospedagem_sevico.codhospedagem = hospedagem.codhospedagem
-join servico on hospedagem.codhospedagem = sevico.codservico;
+join hospedagem_servico on hospedagem.codHospedagem = hospedagem_servico.codHospedagem
+join servico on hospedagem.codhospedagem = hospedagem_servico.codHospedagem;
+
 
 -- Consultar os clientes com seus telefones
-select * from cliente;
-select * from telefone;
-
-select * 
+select cliente.nomeCliente, telefone.codCliente, tipotelefone
 from cliente
-join telefone on cliente.codcliente = telefone.codcliente;
+join telefone on cliente.codcliente = telefone.codcliente
+where cliente.codcliente = telefone.codcliente;
+
 
 -- Selecionar chalés ocupados em uma data específica
-
 select *
 from chale
 join hospedagem on hospedagem.codchale = chale.codchale
 where datainicio between "2024-03-07" and "2024-03-14";
+
+
+-- version professor
+select chale.*, hospedagem.dataInicio, hospedagem.dataFim
+from chale
+join hospedagem on chale.codChale = hospedagem.codChale
+where '2024-03-2025' between hospedagem.dataInicio and hospedagem.dataFim;
+
+
+
+
+
+
