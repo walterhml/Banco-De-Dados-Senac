@@ -92,37 +92,67 @@ INSERT INTO Produto (Nome, Descricao, Preco, CategoriaID, UsuarioAtualizacao) VA
 SELECT * FROM PRODUTO;
 
 -- 3. Alterar a categoria de um produto:
+UPDATE categoria
+SET Nome = 'Automotivo'
+WHERE Id = 2;
 
 
+SELECT * FROM CATEGORIA;
 -- 4. Inserir um novo cliente:
 
+INSERT INTO cliente (Nome, Email, Telefone, ativo) VALUES 
+('lula', 'lula@gmail.com', 11953348399, 1);
+
+
+SELECT * FROM cliente;
 
 -- 5. Inserir um novo pedido:
+INSERT INTO Pedido (ClienteId, DataPedido, FormaPagamentoId, status, UsuarioAtualizacao)
+VALUES 
+(6, '2024-03-25 10:00:00', 5, 'Aguardando Pagamento', 6);
 
+SELECT * FROM PEDIDO;
 
 -- 6. Atualizar o preço de um produto:
+UPDATE produto
+SET preco = '7777'
+WHERE ID = 2;
+
+SELECT * FROM produto;
 
 
 ############## DQL - Sem Joins
 -- 1. Selecione todos os registros da tabela Produto:
-
+SELECT *
+FROM produto;
 
 -- 2. Selecione apenas o nome e o preço dos produtos da tabela Produto:
-
+SELECT produto.nome, produto.preco
+FROM produto;
 
 -- 3. Selecione os produtos da tabela Produto ordenados por preço, do mais barato para o mais caro:
-
+SELECT *
+FROM produto
+ORDER BY preco;
 
 -- 4. Selecione os produtos da tabela Produto ordenados por preço, do mais caro para o mais barato:
+SELECT *
+FROM produto
+ORDER BY preco DESC;
+
 
 -- 5. Selecione os nomes distintos das categorias da tabela Categoria:
-
+SELECT DISTINCT categoria.nome
+FROM categoria;
 
 -- 6. Selecione os produtos da tabela Produto cujo preço esteja entre $10 e $50:
-
+SELECT *
+FROM produto
+where Preco between 10 AND 50;
 
 -- 7. Selecione os produtos da tabela Produto, mostrando o nome como "Nome do Produto" e o preço como "Preço Unitário":
-
+SELECT produto.nome AS Nome_do_Produto, produto.Preco AS Preco_Unitario
+FROM produto;
 
 -- 8. Selecione os produtos da tabela Produto, adicionando uma coluna calculada "Preço Total" multiplicando a quantidade pelo preço:
 
