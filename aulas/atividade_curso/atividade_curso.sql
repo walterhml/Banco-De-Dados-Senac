@@ -155,61 +155,111 @@ SELECT produto.nome AS Nome_do_Produto, produto.Preco AS Preco_Unitario
 FROM produto;
 
 -- 8. Selecione os produtos da tabela Produto, adicionando uma coluna calculada "Preço Total" multiplicando a quantidade pelo preço:
-
+SELECT *, preco * 60 as Preco_total 
+FROM produto;
 
 -- 9. Selecione os produtos da tabela Produto, mostrando apenas os 10 primeiros registros:
+SELECT *
+FROM produto
+LIMIT 10;
+
 
 -- 10. Selecione os produtos da tabela Produto, pulando os primeiros 5 registros e mostrando os 10 seguintes:
+SELECT *
+FROM produto
+LIMIT 15 OFFSET 4;
 
 
 ############# DQL - Joins
 -- 1. Selecione o nome do produto e sua categoria:
-
+SELECT produto.nome, categoria.Nome
+FROM PRODUTO
+JOIN categoria ON produto.categoriaID = categoria.Id;
 
 -- 2. Selecione o nome do cliente e o nome do produto que ele comprou:
-
+SELECT *
+FROM cliente
+join pedido on cliente.Id = pedido.ClienteID
+JOIN itempedido ON itempedido.PedidoId = pedido.Id;
 
 -- 3. Selecione todos os produtos, mesmo aqueles que não têm uma categoria associada:
-
+select *
+from produto
+join categoria on produto.CategoriaID = categoria.Id;
 
 -- 4. Selecione todos os clientes, mesmo aqueles que não fizeram nenhum pedido:
-
+select nome
+from cliente
+join pedido on cliente.Id = pedido.Id;
 
 -- 5. Selecione todas as categorias, mesmo aquelas que não têm produtos associados:
-
+select *
+from categoria
+join produto on produto.CategoriaID = categoria.Id;
 
 -- 6. Selecione todos os produtos, mesmo aqueles que não foram pedidos:
-
+select *
+from produto
+join itempedido on produto.Id = itempedido.produtoId;
 
 
 ############### DQL com joins e demais filtros
 -- 1. Selecione o nome da categoria e o número de produtos nessa categoria, apenas para categorias com mais de 5 produtos:
-
+SELECT Categoria.Nome AS Categoria, COUNT(Produto.Id) AS TotalProdutos
+FROM Categoria
+LEFT JOIN Produto ON Categoria.Id = Produto.CategoriaID
+GROUP BY Categoria.Nome
+HAVING COUNT(Produto.Id) > 5;
 
 -- 2. Selecione o nome do cliente e o total de pedidos feitos por cada cliente:
+SELECT Cliente.Nome AS Cliente, COUNT(Pedido.Id) AS TotalPedidos
+FROM Cliente
+LEFT JOIN Pedido ON Cliente.Id = Pedido.ClienteID
+GROUP BY Cliente.Nome;
 
 
 -- 3. Selecione o nome do produto, o nome da categoria e a quantidade total de vendas para cada produto:
-
+select *
+from categoria
+join produto on categoria.Id = produto.Id
+join pedido on produto.Id = pedido.Id;
 
 -- 4. Selecione o nome da categoria, o número total de produtos nessa categoria e o número de pedidos para cada categoria:
-
+SELECT Categoria.Nome AS Categoria, COUNT(Produto.Id) AS TotalProdutos, COUNT(Pedido.Id) AS TotalPedidos
+FROM Categoria
+LEFT JOIN Produto ON Categoria.Id = Produto.CategoriaID
+LEFT JOIN Pedido ON Produto.CategoriaID = Pedido.ClienteID
+GROUP BY Categoria.Nome;
 
 -- 5. Selecione o nome do cliente, o número total de pedidos feitos por esse cliente e a média de produtos por pedido, apenas para clientes que tenham feito mais de 3 pedidos:
 
 
 ##### Crie uma View qualquer para qualquer um dos joins desenvolvidos
+CREATE VIEW produto_categoria_nova AS
+SELECT produto.Nome AS NomeProduto, categoria.Nome AS NomeCategoria
+FROM PRODUTO
+JOIN categoria ON produto.categoriaID = categoria.Id;
+
+select * from produto_categoria_nova;
+
 
 ##### Crie uma transaction que cadastra um cliente e faça uma venda
 -- Início da transação
-
+START TRANSACTION;
 -- Inserir um novo cliente
+INSERT INTO Cliente (Nome, Email, Telefone, UsuarioAtualizacao) VALUES
+ ('João Silva', 'joao@example.com', '555-1234', 1);
 
-
+SELECT * FROM CLIENTE;
 -- Inserir um novo pedido para o cliente
-
+INSERT INTO Pedido (ClienteID, DataPedido, FormaPagamentoId, STATUS, UsuarioAtualizacao) VALUES
+ (1, NOW(), 1, 'Em andamento', 1);
 
 -- Inserir itens no pedido
-
+INSERT INTO ItemPedido (PedidoId, ProdutoId, Quantidade, UsuarioAtualizacao) VALUES
+ (1, 1, 2, 1);
+INSERT INTO ItemPedido (PedidoId, ProdutoId, Quantidade, UsuarioAtualizacao) VALUES
+ (1, 2, 1, 1);
 
 -- Commit da transação (confirmação das alterações)
+commit;
